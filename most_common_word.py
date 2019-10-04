@@ -18,12 +18,12 @@ def get_harry_most_common_word():
     with open(harry_text) as harry, open(stopwords_file) as stopwords:
 
         text = harry.read()
-        stopwords = stopwords.read()
+        stopwords = stopwords.read().splitlines()
 
         for word in re.findall(r"[\w']+", text.lower()):
-            if word not in stopwords.splitlines():
+            if word not in stopwords:
                 word_counter[word] += 1
-    return word_counter.most_common(1)
+    return word_counter.most_common(1)[0]
             
 
 if __name__ == '__main__':
