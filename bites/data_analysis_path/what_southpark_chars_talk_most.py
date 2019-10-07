@@ -20,15 +20,17 @@ def get_season_csv_file(season=1):
 
 def get_num_words_spoken_by_character_per_episode(content):
     talk_counter = defaultdict(Counter)
+
     for line in content:
-        if 'Seanson' not in line[0]:
-            print(f"")
-            talk_counter[line[2]][line[1]] += len(line[3].split())
+        season = line[0]
+        episode = line[1]
+        character = line[2]
+        text = line[3].strip()
+        n_words = len(text.split())
+
+        if 'Seanson' not in season:
+            talk_counter[character][episode] += n_words
     return talk_counter
-            
-
-
-
 
 if __name__ == "__main__":
     season_file = get_season_csv_file(1)
