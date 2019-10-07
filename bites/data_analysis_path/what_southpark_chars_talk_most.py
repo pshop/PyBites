@@ -27,9 +27,7 @@ def get_num_words_spoken_by_character_per_episode(content):
         character = line[2]
         text = line[3].strip()
         n_words = len(text.split())
-
-        if 'Seanson' not in season:
-            talk_counter[character][episode] += n_words
+        talk_counter[character][episode] += n_words
     return talk_counter
 
 if __name__ == "__main__":
