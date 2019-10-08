@@ -1,8 +1,6 @@
 #https://codechalleng.es/bites/156/
 
 from collections import defaultdict
-import pprint
-import unittest
 
 CHARACTERS = ['Red Riding Hood',
               # we're omitting 'mother' here for simplicity

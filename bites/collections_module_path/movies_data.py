@@ -1,5 +1,5 @@
 import csv
-from collections import defaultdict, namedtuple
+from collections import namedtuple
 import os
 from urllib.request import urlretrieve
 

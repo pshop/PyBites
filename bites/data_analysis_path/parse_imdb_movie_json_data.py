@@ -2,7 +2,6 @@ import glob
 import json
 import os
 import operator
-from pprint import pprint as pp
 from urllib.request import urlretrieve
 
 BASE_URL = 'http://projects.bobbelderbos.com/pcc/omdb/'

@@ -1,7 +1,6 @@
 #https://codechalleng.es/bites/130/
 
 from collections import Counter
-from pprint import pprint as pp
 
 import requests
 

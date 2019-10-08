@@ -2,7 +2,6 @@
 
 import os
 import urllib.request
-from pprint import pprint as pp
 
 LOG = os.path.join('/tmp', 'safari.logs')
 PY_BOOK, OTHER_BOOK = '🐍', '.'

@@ -1,5 +1,4 @@
 from collections import defaultdict
-import csv
 
 data = """last_name,first_name,country_code
 Watsham,Husain,ID

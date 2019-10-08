@@ -2,7 +2,6 @@
 
 import csv
 import os
-import re
 import urllib.request
 from collections import Counter, defaultdict
 from pprint import pprint as pp

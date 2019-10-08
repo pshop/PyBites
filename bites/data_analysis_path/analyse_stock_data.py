@@ -1,7 +1,6 @@
 # https://codechalleng.es/bites/129/
 
 import requests
-import json
 from collections import defaultdict, Counter
 
 STOCK_DATA = 'https://bit.ly/2MzKAQg'
