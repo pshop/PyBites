@@ -10,6 +10,7 @@ beautifulsoup4 = "*"
 requests = "*"
 python-dateutil = "*"
 pytest = "*"
+sqlite3 = "*"
 
 [requires]
 python_version = "3.6"
