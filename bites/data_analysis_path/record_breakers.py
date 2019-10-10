@@ -10,10 +10,11 @@ import urllib
 DATA_FILE = "http://projects.bobbelderbos.com/pcc/weather-ann-arbor.csv"
 STATION = namedtuple("Station", "ID Date Value")
 
-def get_dataframe_from_csv_file(season=1):
-    season_script = os.path.join('/tmp', 'seasons_script.csv')
-    urllib.request.urlretrieve(DATA_FILE.format(season), season_script)
-    with open(season_script) as data_file:
+def get_dataframe_from_csv_file():
+    data_weather = os.path.join('/tmp', 'seasons_script.csv')
+    if not os.path.exists(data_weather):
+        urllib.request.urlretrieve(DATA_FILE, data_weather)
+    with open(data_weather) as data_file:
         data = pd.read_csv(data_file)
     return data
 
