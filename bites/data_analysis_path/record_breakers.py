@@ -51,6 +51,7 @@ def high_low_record_breakers_for_2015():
        * Return those as STATION namedtuples, (high_2015, low_2015)
     """
     data = get_dataframe_from_csv_file()
+
     data.Date = data.Date.astype('datetime64[ns]')
     data = data.sort_values(by=['Date', 'ID'])
     mask_date_range = ((data['Date'] >= '2015-01-01') & (data['Date'] <= '2015-12-31'))
