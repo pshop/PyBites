@@ -52,6 +52,7 @@ def high_low_record_breakers_for_2015():
        * Return those as STATION namedtuples, (high_2015, low_2015)
     """
     data = get_dataframe_from_csv_file()
+
     data.Date = data.Date.astype('datetime64[ns]')
     data = data.sort_values(by=['Date', 'ID'])
     mask_date_range = ((data['Date'] >= '2015-01-01') & (data['Date'] <= '2015-12-31'))
@@ -73,6 +74,7 @@ def high_low_record_breakers_for_2015():
                  min_data['Date'].month,
                  min_data['Date'].day
             ), float(min_data['Data_Value'])/10))
+
 
 if __name__ == '__main__':
     print(high_low_record_breakers_for_2015())
