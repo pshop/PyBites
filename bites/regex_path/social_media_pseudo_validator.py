@@ -24,10 +24,24 @@ Reddit
 Validator = namedtuple('Validator', 'range regex')
 
 
-def parse_social_platforms_string():
+def parse_social_platforms_string(social_platforms=social_platforms):
     """Convert the social_platforms string above into a dict where
        keys = social platformsname and values = validator namedtuples"""
-    pass
+    sp_dict = dict()
+    for platform in social_platforms.split('\n\n'):
+        lines = platform.splitlines()
+        range_min = int(re.findall(r"\d+", lines[1])[0])
+        range_max = int(re.findall(r"\d+", lines[2])[0])
+        validator = '['
+        for e in lines[3].split(' ')[4:]:
+          validator += e.strip()
+        validator += ']+$'
+        sp_dict[lines[0]] = Validator(
+          range= range(range_min,range_max),
+          regex=re.compile(validator))
+    return sp_dict
+
+
 
 
 def validate_username(platform, username):
@@ -35,7 +49,17 @@ def validate_username(platform, username):
        raise a ValueError if the wrong platform is passed in,
        return True/False if username is valid for entered platform"""
     all_validators = parse_social_platforms_string()
-    # ...
+    try:
+      all_validators[platform]
+    except:
+      raise ValueError
+    if all_validators[platform].regex.match(username) and\
+      len(username) in all_validators[platform].range:
+      return True
+    return False
+
+
+    
 
 if __name__ == "__main__":
-    pass
+    print(validate_username('Twitter', 'pshop'))
